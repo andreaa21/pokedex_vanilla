@@ -12,14 +12,14 @@ async function fetchData() {
         const pokemonId = pokemon.url.split('/')[6];
         const pokemonName = pokemon.name;
         const pokemonImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonId}.svg`;
-        generateCards(createPokemonImage(pokemonImage), createPokemonName(pokemon.name));
+        generateCards(createPokemonImage(pokemonImage, createPokemonIndex(pokemonId)), createPokemonName(pokemonName));
         // console.log(pokemonId + ' - ' + pokemonName + ' - ' + pokemonImage);
     });
     return allPokemon;
 }
 
 
-function generateCards(imageDiv, nameDiv, indexDiv) {
+function generateCards(imageDiv, nameDiv) {
     const card = document.createElement('div');
     card.classList.add('card');
     card.appendChild(imageDiv);
@@ -27,12 +27,13 @@ function generateCards(imageDiv, nameDiv, indexDiv) {
     wrapper.appendChild(card);
 }
 
-function createPokemonImage(str) {
+function createPokemonImage(str, indexDiv) {
     const imageContainer = document.createElement('div');
     const pokemonImage = document.createElement('img');
     imageContainer.classList.add('pokemon-image');
     pokemonImage.setAttribute('src', str)
     imageContainer.appendChild(pokemonImage);
+    imageContainer.appendChild(indexDiv);
     return imageContainer;
 }
 
@@ -47,7 +48,7 @@ function createPokemonName(str) {
 
 function createPokemonIndex(str) {
     const indexContainer = document.createElement('div');
-    const pokemonIndex = dcument.createElement('span');
+    const pokemonIndex = document.createElement('span');
     indexContainer.classList.add('pokemon-index');
     pokemonIndex.innerText = '# ' + str;
     indexContainer.appendChild(pokemonIndex);
