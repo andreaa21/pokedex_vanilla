@@ -36,7 +36,8 @@ function createPokemonImage(str, indexDiv) {
 
 function createPokemonName(str) {
     const nameContainer = document.createElement('div');
-    const pokemonName = document.createElement('p');
+    const pokemonName = document.createElement('a');
+    pokemonName.setAttribute('href', `/${str}`);
     nameContainer.classList.add('pokemon-name');
     pokemonName.innerText = str;
     nameContainer.appendChild(pokemonName);

@@ -51,6 +51,14 @@ body {
     align-items: center;
     justify-content: center;
 }
+#card-container .card .pokemon-name a {
+    color: black;
+    text-decoration: none;
+    transition: all .3s;
+}
+#card-container .card .pokemon-name a:hover {
+    color: crimson;
+}
 
 
 #card-container .card .pokemon-index {
