@@ -68,9 +68,31 @@ body {
 }
 
 
+#navigator {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3rem;
+}
 .next, .previous {
     text-decoration: none;
     color: black;
+    padding: .5rem 1rem;
+    margin: .5rem;
+    min-width: 100px;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    background-color: crimson;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.next.disabled,
+.previous.disabled {
+    pointer-events: none;
+    opacity: .5;
 }
 
 
