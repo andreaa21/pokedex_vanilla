@@ -1,4 +1,4 @@
-const ALL_POKEMON_API_URL = `https://pokeapi.co/api/v2/pokemon`;
+const API_URL = `https://pokeapi.co/api/v2/pokemon`;
 const wrapper = document.getElementById('wrappper');
 const cardContainer = document.getElementById('card-container');
 let allPokemon = [];
@@ -53,11 +53,4 @@ function createPokemonIndex(str) {
 }
 
 
-async function getPokemonById(id) {
-    const response = await fetch(UNIQUE_POKEMON_API_URL + id)
-    let data = await response.json();
-    console.log(data);
-}
-
-
-document.addEventListener('DOMContentLoaded', fetchData(ALL_POKEMON_API_URL));
+document.addEventListener('DOMContentLoaded', fetchData(API_URL));
