@@ -1,7 +1,4 @@
-const FIRST_GEN = 151;
-const SECOND_GEN = 100;
 const ALL_POKEMON_API_URL = `https://pokeapi.co/api/v2/pokemon`;
-const UNIQUE_POKEMON_API_URL = `https://pokeapi.co/api/v2/pokemon/`;
 const wrapper = document.getElementById('wrappper');
 const cardContainer = document.getElementById('card-container');
 let allPokemon = [];
@@ -16,7 +13,6 @@ async function fetchData(url) {
         const pokemonImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonId}.svg`;
         generateCards(createPokemonImage(pokemonImage, createPokemonIndex(pokemonId)), createPokemonName(pokemonName));
     });
-    // return allPokemon;
 }
 
 
@@ -63,6 +59,5 @@ async function getPokemonById(id) {
     console.log(data);
 }
 
-// getPokemonById(300);
 
 document.addEventListener('DOMContentLoaded', fetchData(ALL_POKEMON_API_URL));
