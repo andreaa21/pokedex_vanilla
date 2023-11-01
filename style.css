@@ -72,3 +72,33 @@ body {
     text-decoration: none;
     color: black;
 }
+
+
+#info-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#info-wrapper .info-text {
+    text-align: center;
+    color: white;
+    font-size: 5rem;
+    padding-bottom: 2rem;
+    text-transform: capitalize;
+}
+
+#info-wrapper .info-image {
+    height: 500px;
+    width: 500px;
+    border-radius: 100%;
+    background-color: #ffedbc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#info-wrapper .info-image img {
+    max-width: 55%;
+}

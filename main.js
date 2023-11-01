@@ -1,6 +1,7 @@
-const API_URL = `https://pokeapi.co/api/v2/pokemon`;
+const API_URL = `https://pokeapi.co/api/v2/pokemon/`;
 const wrapper = document.getElementById('wrappper');
 const cardContainer = document.getElementById('card-container');
+const info = document.getElementById('info');
 let allPokemon = [];
 
 async function fetchData(url) {
@@ -37,9 +38,9 @@ function createPokemonImage(str, indexDiv) {
 function createPokemonName(str) {
     const nameContainer = document.createElement('div');
     const pokemonName = document.createElement('a');
-    pokemonName.setAttribute('href', `/${str}`);
+    pokemonName.setAttribute('href', `/info.html?name=${str}`);
     nameContainer.classList.add('pokemon-name');
-    pokemonName.innerText = str;
+    pokemonName.innerText = str;;
     nameContainer.appendChild(pokemonName);
     return nameContainer;
 }
@@ -52,6 +53,21 @@ function createPokemonIndex(str) {
     indexContainer.appendChild(pokemonIndex);
     return indexContainer;
 }
+
+async function getPokemonInfoByName(name) {
+    const response = await fetch(API_URL + name);
+    const data = await response.json();
+    // return data;
+    console.log(data);
+}
+
+async function changeRoute(name) {
+    const response = await getPokemonInfoByName(name);
+    if (response) {
+        window.location.href = `./info.html?name=${name}`;
+    }
+} 
+
 
 
 document.addEventListener('DOMContentLoaded', fetchData(API_URL));
